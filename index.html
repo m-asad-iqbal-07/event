@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Engagement Invitation | Misbah Uddin & Mehwish Saleem</title>
+  
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  
+  <!-- Google Fonts: Luxury Serif & Romantic Calligraphy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css?v=3.0">
+</head>
+<body>
+
+  <!-- Petals Falling Canvas -->
+  <canvas id="petalsCanvas"></canvas>
+
+  <!-- Main Container -->
+  <div class="app-viewport" id="appViewport">
+
+    <!-- 1. ENVELOPE OPENING OVERLAY -->
+    <div class="envelope-screen" id="envelopeScreen">
+      <div class="envelope-scene">
+        
+        <div class="envelope-wrapper" id="envelopeWrapper">
+          <!-- Back Flap -->
+          <div class="envelope-back"></div>
+          
+          <!-- Inner Card preview that slides out -->
+          <div class="envelope-letter" id="envelopeLetter">
+            <div class="mini-card">
+              <span class="mini-bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
+              <p class="mini-subtitle">Engagement Ceremony</p>
+              <h3 class="mini-names">Misbah & Mehwish</h3>
+              <div class="mini-rings">💍</div>
+            </div>
+          </div>
+          
+          <!-- Left & Right Flaps with Embossed Damask Pattern -->
+          <div class="envelope-flap flap-left">
+            <div class="damask-pattern"></div>
+          </div>
+          <div class="envelope-flap flap-right">
+            <div class="damask-pattern"></div>
+          </div>
+          <div class="envelope-flap flap-bottom">
+            <div class="damask-pattern"></div>
+          </div>
+          
+          <!-- Top Flap that opens upwards -->
+          <div class="envelope-flap flap-top" id="flapTop">
+            <div class="damask-pattern"></div>
+          </div>
+
+          <!-- Luxury Molten Wax Seal Stamp (Matching Video Reference) -->
+          <div class="wax-seal" id="waxSeal" onclick="openInvitation()">
+            <svg class="wax-seal-svg" viewBox="0 0 120 120">
+              <defs>
+                <radialGradient id="waxGradient" cx="35%" cy="32%" r="65%">
+                  <stop offset="0%" stop-color="#fff8e1" />
+                  <stop offset="25%" stop-color="#f5e1a4" />
+                  <stop offset="60%" stop-color="#d4af37" />
+                  <stop offset="90%" stop-color="#99721d" />
+                  <stop offset="100%" stop-color="#5a4009" />
+                </radialGradient>
+                <radialGradient id="innerWax" cx="40%" cy="40%" r="55%">
+                  <stop offset="0%" stop-color="#fff4cd" />
+                  <stop offset="50%" stop-color="#ebd189" />
+                  <stop offset="100%" stop-color="#b68c28" />
+                </radialGradient>
+                <filter id="waxShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#150205" flood-opacity="0.65" />
+                </filter>
+              </defs>
+
+              <!-- Organic Melted Wax Outer Rim -->
+              <path class="wax-base-shape" filter="url(#waxShadow)" fill="url(#waxGradient)" d="
+                M 60,6 
+                C 72,5 82,10 91,18 
+                C 99,26 106,34 110,45 
+                C 115,57 114,68 111,79 
+                C 107,90 99,99 90,106 
+                C 80,113 69,115 58,114 
+                C 46,113 35,108 26,101 
+                C 17,93 11,83 7,72 
+                C 4,60 5,48 10,37 
+                C 15,26 23,17 33,11 
+                C 42,6 51,7 60,6 Z
+              " />
+
+              <!-- Stamped Inner Circular Bevel -->
+              <circle cx="60" cy="60" r="43" fill="url(#innerWax)" stroke="#745110" stroke-width="1.2" opacity="0.9" />
+              <!-- Concentric Gold Rings -->
+              <circle cx="60" cy="60" r="39.5" fill="none" stroke="#fff8df" stroke-width="1.2" opacity="0.75" />
+              <circle cx="60" cy="60" r="37.5" fill="none" stroke="#7e5912" stroke-width="0.8" opacity="0.6" />
+            </svg>
+
+            <!-- Monogram Initials Centered -->
+            <div class="seal-content">
+              <span class="monogram-m">M</span>
+              <span class="monogram-amp">&amp;</span>
+              <span class="monogram-m">M</span>
+            </div>
+
+            <div class="seal-glow"></div>
+            <div class="seal-pulse"></div>
+          </div>
+
+          <!-- Light Beam Burst (appears on opening) -->
+          <div class="light-beam" id="lightBeam"></div>
+        </div>
+
+        <!-- Prompt Text Below Envelope -->
+        <div class="open-instruction" id="openInstruction" onclick="openInvitation()">
+          <span class="tap-hand">👆</span>
+          <p>Tap the Wax Seal to Open</p>
+          <span class="sub-tap">An exclusive invitation awaits you</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 2. MAIN INVITATION CONTENT (Scrollable Card) -->
+    <main class="invitation-main hidden" id="invitationMain">
+      
+      <!-- HERO ARCH SECTION -->
+      <section class="hero-arch-section">
+        <div class="royal-arch-frame">
+          
+          <!-- Elegant Gold Filigree Crown Crest -->
+          <div class="arch-crown-crest">
+            <svg class="crown-svg" viewBox="0 0 240 45" preserveAspectRatio="xMidYMid meet">
+              <path d="M 20,40 Q 120,-10 220,40" fill="none" stroke="url(#goldGradCrest)" stroke-width="2" />
+              <path d="M 40,40 Q 120,6 200,40" fill="none" stroke="#caa84e" stroke-width="1" stroke-dasharray="2,3" />
+              <circle cx="120" cy="5" r="4.5" fill="#caa84e" />
+              <circle cx="120" cy="5" r="2" fill="#fffcf5" />
+              <circle cx="70" cy="18" r="2.5" fill="#caa84e" />
+              <circle cx="170" cy="18" r="2.5" fill="#caa84e" />
+              <defs>
+                <linearGradient id="goldGradCrest" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#aa771c" />
+                  <stop offset="35%" stop-color="#fdf4ba" />
+                  <stop offset="65%" stop-color="#caa84e" />
+                  <stop offset="100%" stop-color="#aa771c" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+
+          <!-- Bismillah -->
+          <div class="bismillah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <p class="arch-surah-verse">"And among His signs is that He created for you mates from among yourselves that you may find tranquility in them; and He placed between you love and mercy."</p>
+
+          <!-- Header Titles -->
+          <div class="invitation-badge">
+            <span class="badge-line"></span>
+            <span class="badge-text">ENGAGEMENT CEREMONY</span>
+            <span class="badge-line"></span>
+          </div>
+
+          <!-- Date Badge -->
+          <div class="ceremony-date-badge">
+            <span class="ceremony-day">Saturday</span>
+            <span class="ceremony-full-date">21 November 2026</span>
+          </div>
+
+          <p class="family-request">A warm welcome by Misbah's Family.<br>You are cordially invited to celebrate the blessed engagement of</p>
+
+          <!-- Couple's Names in Royal Calligraphy -->
+          <div class="couple-names-wrap">
+            <h1 class="groom-name">Misbah Uddin</h1>
+            <div class="ampersand-wrap">
+              <span class="amp-line"></span>
+              <span class="ampersand">&</span>
+              <span class="amp-line"></span>
+            </div>
+            <h1 class="bride-name">Mehwish Saleem</h1>
+          </div>
+
+          <!-- Romantic Swans & Floating Water Reflections (from video reference) -->
+          <div class="swans-illustration">
+            <div class="glow-backdrop"></div>
+            <div class="swans-lake">
+              <div class="swan swan-left">🦢</div>
+              <div class="heart-sparkle">💖</div>
+              <div class="swan swan-right">🦢</div>
+            </div>
+            <div class="water-ripples">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="lake-roses">
+              <span class="blush-rose">🌹</span>
+              <span class="blush-rose">🌸</span>
+              <span class="blush-rose">🌺</span>
+              <span class="blush-rose">🌸</span>
+              <span class="blush-rose">🌹</span>
+            </div>
+          </div>
+
+          <!-- Scroll Down Indicator -->
+          <div class="scroll-down-hint">
+            <span class="scroll-label">Scroll to explore details</span>
+            <div class="scroll-arrow">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. COUNTDOWN TIMER SECTION -->
+      <section class="section-card countdown-section">
+        <div class="gold-ornament">❖ ❖ ❖</div>
+        <h2 class="section-title">The Celebration Begins In</h2>
+        <p class="section-subtitle">Counting every heartbeat until the auspicious day</p>
+
+        <div class="countdown-grid">
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdDays">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdHours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdMinutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-separator">:</div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdSeconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+
+        <div class="calendar-btn-wrap">
+          <a href="#" class="gold-action-btn" id="addToCalBtn" onclick="addToCalendar(event)">
+            📅 Add to Calendar
+          </a>
+        </div>
+      </section>
+
+      <!-- 4. SCHEDULE OF EVENTS TIMELINE (from video reference) -->
+      <section class="section-card timeline-section">
+        <div class="gold-ornament">❖ ❖ ❖</div>
+        <h2 class="section-title">Schedule of Events</h2>
+        <p class="section-subtitle">Moments of Joy & Auspicious Ceremonies</p>
+
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+
+          <!-- Event 1: Guest Arrival -->
+          <div class="timeline-item">
+            <div class="timeline-time">11:00 AM</div>
+            <div class="timeline-rose-marker">
+              <span class="rose-icon">🌹</span>
+            </div>
+            <div class="timeline-card">
+              <h3 class="event-title">Guest Arrival</h3>
+              <p class="event-desc">Warm reception of honoured guests with traditional welcomes and celebratory refreshments.</p>
+              <span class="event-urdu">خوش آمدید و استقبال</span>
+            </div>
+          </div>
+
+          <!-- Event 2: Lunch -->
+          <div class="timeline-item">
+            <div class="timeline-time">02:00 PM – 03:00 PM</div>
+            <div class="timeline-rose-marker">
+              <span class="rose-icon">🌹</span>
+            </div>
+            <div class="timeline-card">
+              <h3 class="event-title">Royal Lunch & Feast</h3>
+              <p class="event-desc">A lavish banquet prepared with immense love and hospitality for all our respected attendees.</p>
+              <span class="event-urdu">پرتکلف ظہرانہ</span>
+            </div>
+          </div>
+
+          <!-- Event 3: Ring Ceremony -->
+          <div class="timeline-item highlight-item">
+            <div class="timeline-time">04:00 PM</div>
+            <div class="timeline-rose-marker ring-pulse">
+              <span class="rose-icon">💍</span>
+            </div>
+            <div class="timeline-card ceremony-card">
+              <div class="golden-sparkle-badge">Auspicious Moment</div>
+              <h3 class="event-title">Ring Ceremony</h3>
+              <p class="event-desc">The sacred exchange of engagement rings between Misbah & Mehwish, accompanied by prayers for their eternal bond.</p>
+              <span class="event-urdu">رسم انگشتری و دعائے خیر</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. LOCATION & VENUE SECTION -->
+      <section class="section-card venue-section">
+        <div class="gold-ornament">❖ ❖ ❖</div>
+        <h2 class="section-title">Location & Venue</h2>
+        <p class="section-subtitle">Where we await your gracious presence</p>
+
+        <div class="venue-card">
+          <div class="venue-badge">Destination</div>
+          <h3 class="venue-name">Utmanzai</h3>
+          <p class="venue-detail">Charsadda, Khyber Pakhtunkhwa, Pakistan</p>
+          
+          <div class="venue-map-preview">
+            <div class="map-overlay">
+              <span class="map-pin">📍</span>
+              <p class="map-hint">Click below for live GPS directions</p>
+            </div>
+            <iframe 
+              title="Google Map Location"
+              class="google-map-iframe"
+              src="https://maps.google.com/maps?q=Utmanzai,+Charsadda,+Pakistan&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <div class="venue-buttons">
+            <a href="https://www.google.com/maps/search/?api=1&query=Utmanzai,+Charsadda" target="_blank" rel="noopener noreferrer" class="gold-action-btn">
+              🗺️ Open in Google Maps
+            </a>
+            <button class="gold-outline-btn" onclick="copyAddress('Utmanzai, Charsadda, KPK')">
+              📋 Copy Address
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. SHARE WITH FAMILY ON WHATSAPP -->
+      <section class="section-card share-section">
+        <div class="gold-ornament">❖ ❖ ❖</div>
+        <h2 class="section-title">Share Invitation</h2>
+        <p class="section-subtitle">Forward this invitation to friends and family</p>
+
+        <div class="share-actions">
+          <button class="whatsapp-btn" onclick="shareOnWhatsApp()">
+            💬 Share via WhatsApp
+          </button>
+          <button class="gold-outline-btn" onclick="copyInviteLink()">
+            🔗 Copy Link
+          </button>
+        </div>
+      </section>
+
+      <!-- 8. FOOTER WITH BLESSINGS -->
+      <footer class="invitation-footer">
+        <div class="footer-rose">🌹</div>
+        <p class="footer-blessing">"May Allah unite them in goodness and shower countless blessings upon this new journey."</p>
+        <p class="footer-hosts">Warmly welcomed by:<br><strong>Misbah's Family</strong></p>
+        <p class="footer-tagline">21 November 2026 • Utmanzai</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Scripts -->
+  <script src="script.js?v=3.0"></script>
+</body>
+</html>
