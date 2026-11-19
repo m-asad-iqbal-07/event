@@ -1,15 +1,15 @@
 /**
  * Engagement Invitation - Misbah Uddin & Mehwish Saleem
- * Date: Saturday, 21 November 2026 | Location: Utmanzai
+ * Date: Sunday, 22 November 2026 | Location: Utmanzai
  * Warm Welcome by Misbah's Family
  */
 
 // ----------------------------------------------------
 // 1. CONFIGURATION & STATE
 // ----------------------------------------------------
-// Target Date: 21 November 2026 at 11:00 AM
+// Target Date: 22 November 2026 at 11:00 AM
 // (Month is 0-indexed in JS Date: 10 = November)
-const engagementDate = new Date(2026, 10, 21, 11, 0, 0);
+const engagementDate = new Date(2026, 10, 22, 11, 0, 0);
 
 // ----------------------------------------------------
 // 2. WAX SEAL & ENVELOPE OPENING ANIMATION
@@ -120,7 +120,7 @@ function addToCalendar(e) {
   const details = encodeURIComponent(
     "A warm welcome by Misbah's Family.\n\n" +
     "You are cordially invited to celebrate the blessed Engagement Ceremony of Misbah Uddin & Mehwish Saleem.\n\n" +
-    "Date: Saturday, 21 November 2026\n" +
+    "Date: Sunday, 22 November 2026\n" +
     "Schedule of Events:\n" +
     "• 11:00 AM: Guest Arrival\n" +
     "• 02:00 PM – 03:00 PM: Royal Lunch\n" +
@@ -129,8 +129,8 @@ function addToCalendar(e) {
   );
   const location = encodeURIComponent("Utmanzai, Charsadda, Khyber Pakhtunkhwa");
 
-  // Saturday, 21 November 2026 11:00 AM to 5:00 PM (PKT is UTC+5 -> 06:00 to 12:00 UTC)
-  const dates = "20261121T060000Z/20261121T120000Z";
+  // Sunday, 22 November 2026 11:00 AM to 5:00 PM (PKT is UTC+5 -> 06:00 to 12:00 UTC)
+  const dates = "20261122T060000Z/20261122T120000Z";
 
   const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${dates}`;
   window.open(googleCalUrl, '_blank');
@@ -159,7 +159,7 @@ function shareOnWhatsApp() {
     `A warm welcome by *Misbah's Family*.\n\n` +
     `You are cordially invited to celebrate the blessed Engagement Ceremony of:\n` +
     `✨ *Misbah Uddin* & *Mehwish Saleem* ✨\n\n` +
-    `📅 *Date:* Saturday, 21 November 2026\n` +
+    `📅 *Date:* Sunday, 22 November 2026\n` +
     `📍 *Location:* Utmanzai\n\n` +
     `⏰ *Schedule of Events:*\n` +
     `• 11:00 AM: Guest Arrival\n` +
